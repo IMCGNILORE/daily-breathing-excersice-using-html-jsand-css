@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Mindfulness</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f2fe;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    h1 {
+        color: #0369a1;
+    }
+
+    .circle {
+        width: 150px;
+        height: 150px;
+        background-color: #38bdf8;
+        border-radius: 50%;
+        margin: 40px auto;
+        transition: transform 4s linear;
+    }
+
+    #text {
+        font-size: 24px;
+        margin: 20px;
+        color: #0f172a;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 18px;
+        background-color: #0369a1;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0284c7;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🌿 Daily Mindfulness</h1>
+
+<div class="circle" id="circle"></div>
+
+<div id="text">Click Start</div>
+
+<button onclick="start()">Start Breathing</button>
+
+<script>
+    const circle = document.getElementById("circle");
+    const text = document.getElementById("text");
+
+    function start() {
+        inhale();
+    }
+
+    function inhale() {
+        text.innerHTML = "Inhale";
+        circle.style.transition = "transform 4s linear";
+        circle.style.transform = "scale(1.5)";
+
+        setTimeout(hold, 4000);
+    }
+
+    function hold() {
+        text.innerHTML = "Hold";
+        setTimeout(exhale, 1000);
+    }
+
+    function exhale() {
+        text.innerHTML = "Exhale";
+        circle.style.transition = "transform 6s linear";
+        circle.style.transform = "scale(1)";
+
+        setTimeout(inhale, 6000);
+    }
+</script>
+
+</body>
+</html>
+
